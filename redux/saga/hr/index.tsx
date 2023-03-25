@@ -1,5 +1,5 @@
 import { all, takeEvery } from "redux-saga/effects";
-import ActionTypes from "../../action/actionTypes";
+import ActionTypes from "../../action/hr/actionTypes";
 import { handleGetDepartment } from "./department";
 
 function* watchAll() {

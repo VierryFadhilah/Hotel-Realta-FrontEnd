@@ -1,4 +1,4 @@
-import ActionTypes from "@/redux/action/actionTypes";
+import ActionTypes from "@/redux/action/hr/actionTypes";
 
 const initialState = {
   data: {},

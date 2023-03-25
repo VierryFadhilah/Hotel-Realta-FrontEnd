@@ -1,4 +1,4 @@
-import ActionTypes from "../actionTypes";
+import ActionTypes from "./actionTypes";
 
 export const getDepartment = (search: string, page: number, entry: number) => {
   const payload = {

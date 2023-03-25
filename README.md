@@ -1,38 +1,104 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hotel Realta FrontEnd
 
-## Getting Started
+List nama username **Github** di Trello untuk diundang sebagai collaborator di project ini.
 
-First, run the development server:
+## Clone Project
+
+Clone project ini dengan menggunakan perintah:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+git clone https://github.com/VierryFadhilah/Hotel-Realta-FrontEnd.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Setelah clone project ini, buka di VS Code.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Instalasi dan Jalankan Project
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+npm install
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Buat Branch Baru
 
-## Learn More
+Setelah itu buat branch baru dengan perintah
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+git checkout -b  namamodule_namakamu
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Contoh**: `
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+git checkout -b payment_rustam
+```
 
-## Deploy on Vercel
+Buat kodingan untuk FrontEnd kalian.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+> Semua perubahan kode untuk masing-masing module di `commit` dan di `push` ke `branch` masing-masing (jangan ke `branch master`).
+> Setelah itu kalau ada keperluan untuk menyatukan project bisa melakukan `pull request` atau menghubungi Tama atau yang lain.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+## Aturan-aturan
+
+### Penamaan
+
+> **Jangan menggunakan nama yang kurang memberikan gambaran tentang variabel, nama method/function, isi file atau folder yang dikerjakan agar mudah dikenali atau dibaca oleh orang lain. Contoh:** `let terserah = 'terserah`, `nyoba-nyoba.controller.ts`, `jajang.service.ts`, atau `folderPunyaJajang`.
+
+1. Penamaan variabel menggunakan bahasa inggris dan menggunakan format **camelCase**.
+   Contoh: `const hotelName: string`
+
+2. Penamaan method/function menggunakan bahasa inggris dan menggunakan format **camelCase**.
+   Contoh: `const getAllUsers() {}`;
+
+3. Penamaan folder menggunakan nama bahasa inggris dan menggunakan format **camelCase**.
+   Contoh: `usersSchema`
+
+4. Nama folder untuk models menggunakan format `namaSchema`.
+   Contoh: `usersSchema`
+
+### Struktur Folder REDUX
+
+1. Struktur folder untuk models:
+
+```
+redux/
+  ├── action
+    ├── nama_modul (contoh: users)
+        ├── action.tsx
+        ├── ActionTypes.tsx
+  ├── reducer
+    ├── nama_modul (contoh: users)
+        ├── reducer.tsx
+  ├── saga
+    ├── nama_modul (contoh: users)
+        ├── index.ts (*untuk yang TakeEvery nya)
+  ├── store
+    index.tsx (*silahkan masukan reducers masing masing)
+```
+
+### Struktur Folder Untuk Masing-masing MODUl
+
+```
+pages/
+  ├── nama_modul (contoh: users)
+    ├── users
+      ├── folder
+        index.tsx
+    _app.tsx
+    _document.tsx
+    _index.tsx
+components/
+    ├── paginations
+        ├── index.tsx
+```
+
+Jika ada kebutuhan penambahan folder custom seperti untuk `guards`, `validation`, dll bisa disesuaikan.
+
+Namun apabila jika misalnya ada kebutuhan yang bisa dipakai oleh banyak schema seperti `konstanta`, `decorators` dan lainnya bisa disimpan pada folder `common`.
+
+### Penggunaan File .env
+
+Untuk file `.env` bisa buat file dengan nama `.env` dan bisa copy isinya dari file `.env.example`
