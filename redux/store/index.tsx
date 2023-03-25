@@ -4,7 +4,7 @@ import createSagaMiddleware from "@redux-saga/core";
 import { departmentReducers } from "../reducer/hr/departmentReducer";
 
 import { createLogger } from "redux-logger";
-import rootSaga from "../saga";
+import rootSaga from "../saga/hr";
 
 const logger = createLogger();
 const saga = createSagaMiddleware();

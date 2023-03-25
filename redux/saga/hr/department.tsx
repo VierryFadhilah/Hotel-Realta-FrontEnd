@@ -1,6 +1,6 @@
 import departmentApi from "@/api/hr/departmentApi";
 import { call, put } from "redux-saga/effects";
-import { getDepartmentResponse } from "../action/hr/department";
+import { getDepartmentResponse } from "../../action/hr/department";
 
 function* handleGetDepartment(action: any): any {
   try {
