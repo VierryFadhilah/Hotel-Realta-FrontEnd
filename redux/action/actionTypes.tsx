@@ -1,0 +1,5 @@
+const ActionTypes = {
+  GET_DEPARTMENT_RESPONSE: "GET_DEPARTMENT_RESPONSE",
+  GET_DEPARTMENT: "GET_DEPARTMENT",
+};
+export default ActionTypes;
