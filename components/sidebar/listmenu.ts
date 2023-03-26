@@ -6,6 +6,7 @@ import User from '@/components/icons/user';
 import Folder from '@/components/icons/folder-open';
 import Dashboard from '@/components/icons/view-grid';
 import Chevron from '@/components/icons/Icon';
+import Hr from '../icons/identification';
 
 const listMenu = [
     
@@ -16,8 +17,8 @@ const listMenu = [
         name: "Dashboard",
     },
     {
-        to: "",
-        path: "",
+        to: "/hotel",
+        path: "/hotel",
         icon: Hotels,
         name: "Hotel",
     },
@@ -28,8 +29,8 @@ const listMenu = [
         name: "Resto"
     },
     {
-        to: "",
-        path: "",
+        to: "#",
+        path: "#",
         icon: Shopping,
         name: "Purchasing",
         icon2: Chevron,
@@ -87,19 +88,19 @@ const listMenu = [
     },
     {
         to: "",
-        path: "",
-        icon: User,
+        path: "#",
+        icon: Hr,
         name: "Human Resource",
         icon2: Chevron,
         submenu: [
             {
-                to: "",
-                path: "",
+                to: "/hr/department",
+                path: "/hr/department",
                 title: "Vendor",
             },
             {
-                to: "",
-                path: "",
+                to: "/",
+                path: "/",
                 title: "Stock",
             },
             {

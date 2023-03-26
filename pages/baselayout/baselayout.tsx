@@ -9,11 +9,12 @@ const [showNav, setShowNav]= useState(true)
   return (
     <div>
         <Navbar showNav={showNav} setShowNav={setShowNav}/>
-        <Sidebar/>
-        <main
-        className={`pt-16 transition-all duration-[400ms]`}>
-        <div className="px-4 md:px-16">{children}</div>
+        <div className="flex">
+        <Sidebar />
+        <main className={`pt-[100px] transition-all duration-[400ms] flex-1`}>
+          <div className="px-1 md:px-10">{children}</div>
         </main>
+      </div>
     </div>
   )
 }
