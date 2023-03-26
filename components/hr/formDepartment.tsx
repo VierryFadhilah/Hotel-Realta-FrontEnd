@@ -25,6 +25,7 @@ export const FormDepartment = (props: any) => {
 
   const handleRegistration = (data: any) => {
     if (!props.id) {
+      // untuk membuat
       dispatch(createDepartment(data));
       props.setIsOpen({ isShow: false });
     } else {
