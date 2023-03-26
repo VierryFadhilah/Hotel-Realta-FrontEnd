@@ -1,6 +1,10 @@
 import departmentApi from "@/api/hr/departmentApi";
 import { call, put } from "redux-saga/effects";
-import { getDepartmentResponse } from "../../action/hr/department";
+import {
+  createDepartmentResponse,
+  deleteDepartmentResponse,
+  getDepartmentResponse,
+} from "../../action/hr/department";
 
 function* handleGetDepartment(action: any): any {
   try {
@@ -13,4 +17,28 @@ function* handleGetDepartment(action: any): any {
   }
 }
 
-export { handleGetDepartment };
+function* handleCreateDepartment(action: any): any {
+  try {
+    const data = action.payload;
+
+    const result = yield call(departmentApi.createDepartment, data);
+
+    yield put(createDepartmentResponse(result.data));
+  } catch (error) {
+    yield put(createDepartmentResponse({ message: error }));
+  }
+}
+
+function* handleDeleteDepartment(action: any): any {
+  try {
+    const id = action.payload;
+
+    const result = yield call(departmentApi.deleteDepartment, id);
+
+    yield put(deleteDepartmentResponse(result.data));
+  } catch (error) {
+    yield put(deleteDepartmentResponse({ message: error }));
+  }
+}
+
+export { handleGetDepartment, handleCreateDepartment, handleDeleteDepartment };

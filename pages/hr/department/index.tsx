@@ -1,24 +1,51 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDepartment } from "@/redux/action/hr/department";
+import { deleteDepartment, getDepartment } from "@/redux/action/hr/department";
 import { SearchInput } from "@/components/searchInput";
 import { Pagination } from "@/components/pagination";
+import { Plus } from "@/components/icons/Plus";
+import { Modal } from "@/components/modal";
+import { Pencil } from "@/components/icons/pencil";
+import { Trash } from "@/components/icons/trash";
+import { FormDepartment } from "@/components/hr/formDepartment";
+import { ConfirmationDeleteDepartment } from "@/components/hr/confirmationDeleteDepartment";
 
 const Department = () => {
-  const dispatch = useDispatch();
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [entry, setEntry] = useState(10);
+  const [isOpen, setIsOpen] = useState({
+    department: "",
+    id: 0,
+    isShow: false,
+  });
+  const [optionOpen, setOptionOpen] = useState(false);
+  const [isDelete, setIsDelete] = useState({
+    department: "",
+    id: 0,
+    isShow: false,
+  });
   const header = ["Departmen ID", "Department", "Action "];
-  const { data } = useSelector((state: any) => state.departmentReducers);
-  useEffect(() => {
-    dispatch(getDepartment(search, page, entry));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [search, page, entry]);
+  const { data, refresh } = useSelector(
+    (state: any) => state.departmentReducers
+  );
+  const dispatch = useDispatch();
 
   const handleSearchChange = (e: any) => {
     setSearch(e.target.value);
   };
+  const closeDeleteModal = () => {
+    setIsDelete((prev: any) => {
+      return { ...prev, isShow: false };
+    });
+  };
+  const handleDeleteDepartment = (id: number) => {
+    closeDeleteModal();
+    dispatch(deleteDepartment(id));
+  };
+  useEffect(() => {
+    dispatch(getDepartment(search, page, entry));
+  }, [search, page, entry, refresh, isOpen, dispatch, isDelete]);
 
   return (
     <div className="flex w-screen font-display">
@@ -27,9 +54,14 @@ const Department = () => {
           <div>
             <SearchInput handleSearchChange={handleSearchChange} />
           </div>
-          <div>
-            <button className="bg-purple-700 text-white py-2 px-4 rounded">
-              + Add
+          <div className="flex ">
+            <button
+              onClick={() => {
+                setIsOpen({ department: "", id: 0, isShow: true });
+              }}
+              className="flex items-center bg-[#7743DB] hover:bg-[#5f35ac] text-white py-2 px-4 rounded"
+            >
+              <Plus /> <p className="px-2">Add</p>
             </button>
           </div>
         </div>
@@ -44,22 +76,47 @@ const Department = () => {
           </div>
         </div>
 
-        <table className="w-full">
+        <table className="w-full shadow-lg">
           <thead className=" bg-slate-100">
-            <tr className="">
-              {header.map((h, i) => (
-                <th key={i} className=" py-2 px-4 text-left  ">
-                  {h}
-                </th>
-              ))}
+            <tr className="bg-[#F9FAFB] border">
+              <th className=" py-2 px-4 text-left ">Departmen ID</th>
+              <th className=" py-2 px-4 text-left ">Department</th>
+              <th className=" py-2 px-6 text-right">Action</th>
             </tr>
           </thead>
           <tbody>
             {(data.department || []).map((department: any, i: number) => (
-              <tr key={i} className="">
+              <tr key={i} className="border">
                 <td className=" py-4 px-4 ">{department.id}</td>
                 <td className=" py-4 px-4 ">{department.name}</td>
-                <td className=" py-4 px-4 ">...</td>
+                <td className=" py-4 px-4  ">
+                  <div className="flex justify-end">
+                    <div
+                      className="mx-2 cursor-pointer"
+                      onClick={() => {
+                        setIsDelete({
+                          department: department.name,
+                          id: department.id,
+                          isShow: true,
+                        });
+                      }}
+                    >
+                      <Trash />
+                    </div>
+                    <div
+                      className="mx-2 cursor-pointer"
+                      onClick={() => {
+                        setIsOpen({
+                          department: department.name,
+                          id: department.id,
+                          isShow: true,
+                        });
+                      }}
+                    >
+                      <Pencil />
+                    </div>
+                  </div>
+                </td>
               </tr>
             ))}
             <tr className="border-t">
@@ -70,6 +127,40 @@ const Department = () => {
           </tbody>
         </table>
       </div>
+      {isOpen.isShow ? (
+        <Modal
+          handleClose={() => {
+            setIsOpen((prev) => {
+              return { ...prev, isShow: false };
+            });
+          }}
+          header={"Add Department"}
+          body={
+            <FormDepartment
+              department={isOpen.department}
+              setIsOpen={setIsOpen}
+            />
+          }
+        />
+      ) : null}
+      {isDelete.isShow ? (
+        <Modal
+          handleClose={() => {
+            closeDeleteModal();
+          }}
+          header={"Delete Department"}
+          body={
+            <ConfirmationDeleteDepartment
+              department={isDelete.department}
+              handleDeleteDepartment={handleDeleteDepartment}
+              id={isDelete.id}
+              handleClose={() => {
+                closeDeleteModal();
+              }}
+            />
+          }
+        />
+      ) : null}
     </div>
   );
 };

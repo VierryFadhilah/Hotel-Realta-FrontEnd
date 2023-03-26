@@ -6,8 +6,18 @@ const getDepartment = (search: any, page: number, entry: number) => {
   );
 };
 
+const createDepartment = (data: any) => {
+  return axios.post(`/hr/department`, data);
+};
+
+const deleteDepartment = (id: number) => {
+  return axios.delete(`/hr/department/${id}`);
+};
+
 const departmentApi = {
   getDepartment,
+  createDepartment,
+  deleteDepartment,
 };
 
 export default departmentApi;

@@ -7,14 +7,20 @@ const initialState = {
 };
 
 export function departmentReducers(state = initialState, action: any) {
-  const { type, payload } = action;
+  let { type, payload } = action;
 
   switch (type) {
     case ActionTypes.GET_DEPARTMENT_RESPONSE:
       return {
         data: payload.data,
-        statusCode: payload.statusCode,
-        message: payload.message,
+        refresh: true,
+      };
+    case ActionTypes.CREATE_DEPARTMENT_RESPONSE:
+      return { data: payload.data, refresh: true };
+    case ActionTypes.DELETE_DEPARTMENT_RESPONSE:
+      return {
+        data: payload.data,
+        refresh: true,
       };
     default:
       return state;

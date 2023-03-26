@@ -1,11 +1,12 @@
 import React from "react";
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import { Magnifier } from "../icons/Magnifier";
 
 export const SearchInput = (props: any) => {
   return (
     <div className="flex">
       <span className="inline-flex items-center pl-3 text-sm border border-r-0 border-gray-400 rounded-l-md  dark:text-gray-400 ">
-        <HiMagnifyingGlass />
+        <Magnifier />
       </span>
       <input
         onChange={props.handleSearchChange}

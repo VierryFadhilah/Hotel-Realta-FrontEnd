@@ -18,3 +18,31 @@ export const getDepartmentResponse = (payload: any) => {
     payload,
   };
 };
+
+export const createDepartment = (payload: any) => {
+  return {
+    type: ActionTypes.CREATE_DEPARTMENT,
+    payload,
+  };
+};
+
+export const createDepartmentResponse = (payload: any): any => {
+  return {
+    type: ActionTypes.CREATE_DEPARTMENT_RESPONSE,
+    payload,
+  };
+};
+
+export const deleteDepartment = (payload: any) => {
+  return {
+    type: ActionTypes.DELETE_DEPARTMENT,
+    payload,
+  };
+};
+
+export const deleteDepartmentResponse = (payload: any) => {
+  return {
+    type: ActionTypes.DELETE_DEPARTMENT_RESPONSE,
+    payload,
+  };
+};
