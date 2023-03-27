@@ -7,6 +7,7 @@ const SidebarBooking = (props: any) => {
     console.log(`Selected price range: ${minPrice} - ${maxPrice}`)
     // Do something with the selected price range
   }
+
   const hotelFacilities = [
     {
       id: 1,
@@ -29,6 +30,7 @@ const SidebarBooking = (props: any) => {
       faci: 'Gym',
     },
   ]
+
   return (
     <aside className="absolute text-[#1C2434] max-w-[20%] mt-4 bg-white shadow rounded px-4 py-3">
       <div className="flex justify-between items-center">
@@ -44,7 +46,7 @@ const SidebarBooking = (props: any) => {
       <ul>
         <li className="flex gap-2 items-center">
           <input type="checkbox" name="faci" id="faci" />
-          <p className="text-xs font-semibold">Parking Facility</p>
+          <p className="text-xs font-semibold mb-2">Parking Facility</p>
         </li>
       </ul>
     </aside>

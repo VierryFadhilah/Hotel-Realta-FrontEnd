@@ -8,3 +8,5 @@ const InputCheckbox = (props: any) => {
     />
   )
 }
+
+export default InputCheckbox
