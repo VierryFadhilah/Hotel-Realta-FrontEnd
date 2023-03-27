@@ -1,13 +1,15 @@
 const variants = {
-    h1: 'text-lg font-poppins-bold font-bold',
-    h2: 'text-lg font-poppins-bold font-bold',
-    h3: 'text-lg font-poppins-bold font-bold',
-    h4: 'text-lg font-poppins-bold font-bold',
-    h5: 'text-sm font-poppins-semibold',
-    subtitle1: 'text-base font-poppins-regular',
-    subtitle2: 'text-sm font-poppins-semibold',
-    subtitle3: 'text-base font-poppins-medium',
-    subtitle4: 'text-xs font-poppins-light',
+    xl2semibold: 'text-2xl font-poppins-semibold',
+    lgbold: 'text-lg font-poppins-bold',
+    xlbold: 'text-xl font-poppins-bold',
+    smsemibold: 'text-sm font-poppins-semibold',
+    baseregular: 'text-base font-poppins-regular',
+    basemedium: 'text-base font-poppins-medium',
+    smregular:'text-sm font-poppins-regular',
+    smmedium: 'text-sm font-poppins-medium',
+    xsmedium: 'text-xs font-poppins-medium',
+    xslight: 'text-xs font-poppins-light',
+    xsregular: 'text-xs font-poppins-regular'
   };
 
   export default variants
