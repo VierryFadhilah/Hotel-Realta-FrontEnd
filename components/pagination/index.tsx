@@ -2,13 +2,11 @@ import React from "react";
 import { ChevronLeft } from "../icons/chevronLeft";
 import { ChevronRight } from "../icons/chevronRight";
 
-type Pagination = {
-  totalPage: number;
-  page: number;
-};
-
 interface Props {
-  pagination: Pagination;
+  pagination: {
+    totalPage: number;
+    page: number;
+  };
   setPage: any;
 }
 

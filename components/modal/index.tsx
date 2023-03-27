@@ -1,7 +1,14 @@
 import React from "react";
-import { FormDepartment } from "../hr/formDepartment";
+import Typography from "../Typography";
+import variants from "../Typography/textcss";
 
-export const Modal = (props: any) => {
+type Props = {
+  header: string;
+  onClose: any;
+  children: any;
+};
+
+export const Modal = ({ header, onClose, children }: Props) => {
   return (
     <div
       className="relative z-10"
@@ -16,17 +23,17 @@ export const Modal = (props: any) => {
           <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
             <div className="flex justify-between border-b">
               <div className="bg-white  px-4 pt-5 pb-4 sm:p-6 sm:pb-4 font-bold ">
-                {props.header}
+                <Typography variant={variants.lgbold}>{header}</Typography>
               </div>
               <div
                 className="px-4 pt-5 pb-4 font-bold cursor-pointer"
-                onClick={props.handleClose}
+                onClick={onClose}
               >
                 X
               </div>
             </div>
 
-            {props.body}
+            {children}
           </div>
         </div>
       </div>

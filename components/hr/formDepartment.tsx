@@ -49,7 +49,7 @@ export const FormDepartment = (props: any) => {
   } = useForm<FormValues>({ resolver });
   return (
     <form onSubmit={handleSubmit(handleRegistration, handleError)}>
-      <div className="bg-white  px-4 pt-5 pb-4 sm:p-6 sm:pb-4 border-b">
+      <div className="bg-white   pt-5 pb-4 sm:p-6 sm:pb-4 border-b">
         <div className="w-full mb-3">Department Name</div>
         <input
           type="text"
@@ -60,7 +60,7 @@ export const FormDepartment = (props: any) => {
         {errors?.name && <p>{errors.name.message}</p>}
       </div>
 
-      <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+      <div className="bg-gray-50  py-3 sm:flex sm:flex-row-reverse sm:px-6">
         <button
           type="submit"
           className="inline-flex w-full justify-center rounded-md bg-[#1D4ED8] px-3 py-2   text-white shadow-sm hover:bg-[#143694] sm:ml-3 sm:w-auto"

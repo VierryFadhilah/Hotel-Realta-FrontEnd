@@ -9,6 +9,9 @@ import { Pencil } from "@/components/icons/pencil";
 import { Trash } from "@/components/icons/trash";
 import { FormDepartment } from "@/components/hr/formDepartment";
 import { ConfirmationDeleteDepartment } from "@/components/hr/confirmationDeleteDepartment";
+import AddButton from "@/components/addButton";
+import Typography from "@/components/Typography";
+import variants from "@/components/Typography/textcss";
 
 interface IDepartement {
   id: number;
@@ -34,6 +37,11 @@ const Department = () => {
     (state: any) => state.departmentReducers
   );
   const dispatch = useDispatch();
+  const handleClose = () => {
+    setIsOpen((prev) => {
+      return { ...prev, isShow: false };
+    });
+  };
 
   const handleSearchChange = (e: any): void => {
     setSearch(e.target.value);
@@ -47,56 +55,72 @@ const Department = () => {
     closeDeleteModal();
     dispatch(deleteDepartment(id));
   };
+  const handleAddOpen = () => {
+    setIsOpen({ department: "", id: 0, isShow: true });
+  };
   useEffect(() => {
     dispatch(getDepartment(search, page, entry));
   }, [search, page, entry, refresh, isOpen, dispatch, isDelete]);
 
   return (
-    <div className="flex w-full font-display">
+    <div className="flex w-full font-poppins-regular">
       <div className="flex flex-col items-start px-5 mt-10 w-full">
         <div className="flex flex-row w-full justify-between">
           <div>
-            <SearchInput handleSearchChange={handleSearchChange} />
+            <SearchInput onChange={handleSearchChange} />
           </div>
           <div className="flex ">
-            <button
-              onClick={() => {
-                setIsOpen({ department: "", id: 0, isShow: true });
-              }}
-              className="flex items-center bg-[#7743DB] hover:bg-[#5f35ac] text-white py-2 px-4 rounded"
-            >
-              <Plus /> <p className="px-2">Add</p>
-            </button>
+            <AddButton onClick={handleAddOpen} />
           </div>
         </div>
 
         <div className="py-3">
           <div className="sm:flex-1 sm:items-center sm:justify-start">
-            <p className="text-sm text-gray-500">
-              Showing <span className="font-medium">{data.from}</span> to{" "}
-              <span className="font-medium">{data.to}</span> of{" "}
-              <span className="font-medium">{data.totalData}</span> results
-            </p>
+            <Typography variant={variants.smregular} color={"text-[#ABABAB]"}>
+              <p className="text-sm">
+                Showing <span className="font-medium">{data.from}</span> to{" "}
+                <span className="font-medium">{data.to}</span> of{" "}
+                <span className="font-medium">{data.totalData}</span> results
+              </p>
+            </Typography>
           </div>
         </div>
 
         <table className="w-full shadow-lg">
-          <thead className=" bg-slate-100">
+          <thead className="">
             <tr className="bg-[#F9FAFB] border">
               {(header || []).map((h, i) => (
-                <th key={i} className=" py-2 px-4 text-left ">
-                  {h}
+                <th key={i} className=" py-2 px-4  text-left ">
+                  <Typography
+                    variant={variants.smregular}
+                    color={"text-[#8A92A6]"}
+                  >
+                    {h}
+                  </Typography>
                 </th>
               ))}
-              <th className=" py-2 px-6 text-right">Action</th>
+              <th className=" py-2 px-6 text-right">
+                <Typography
+                  variant={variants.smregular}
+                  color={"text-[#8A92A6]"}
+                >
+                  Action
+                </Typography>
+              </th>
             </tr>
           </thead>
           <tbody>
             {(data.department || []).map(
               (department: IDepartement, i: number) => (
                 <tr key={i} className="border">
-                  <td className=" py-4 px-4 ">{department.id}</td>
-                  <td className=" py-4 px-4 ">{department.name}</td>
+                  <td className=" py-4 px-4 ">
+                    <Typography variant={variants.baseregular}>
+                      {department.id}
+                    </Typography>
+                  </td>
+                  <td className=" py-4 px-4 font-poppins-regular">
+                    {department.name}
+                  </td>
                   <td className=" py-4 px-4  ">
                     <div className="flex justify-end">
                       <div
@@ -143,39 +167,30 @@ const Department = () => {
         </table>
       </div>
       {isOpen.isShow ? (
-        <Modal
-          handleClose={() => {
-            setIsOpen((prev) => {
-              return { ...prev, isShow: false };
-            });
-          }}
-          header={"Add Department"}
-          body={
-            <FormDepartment
-              id={isOpen.id}
-              department={isOpen.department}
-              setIsOpen={setIsOpen}
-            />
-          }
-        />
+        <Modal onClose={handleClose} header={"Add Department"}>
+          <FormDepartment
+            id={isOpen.id}
+            department={isOpen.department}
+            setIsOpen={setIsOpen}
+          />
+        </Modal>
       ) : null}
       {isDelete.isShow ? (
         <Modal
-          handleClose={() => {
+          onClose={() => {
             closeDeleteModal();
           }}
           header={"Delete Department"}
-          body={
-            <ConfirmationDeleteDepartment
-              department={isDelete.department}
-              handleDeleteDepartment={handleDeleteDepartment}
-              id={isDelete.id}
-              handleClose={() => {
-                closeDeleteModal();
-              }}
-            />
-          }
-        />
+        >
+          <ConfirmationDeleteDepartment
+            department={isDelete.department}
+            handleDeleteDepartment={handleDeleteDepartment}
+            id={isDelete.id}
+            handleClose={() => {
+              closeDeleteModal();
+            }}
+          />
+        </Modal>
       ) : null}
     </div>
   );
