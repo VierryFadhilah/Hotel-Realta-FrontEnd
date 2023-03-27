@@ -73,7 +73,7 @@ const Sidebar = forwardRef(({}, ref: LegacyRef<HTMLDivElement>) => {
                   {menu.submenu.map((slink) => (
                     <div
                       key={slink.title}
-                      className={`${sidebarcss.sidesubmenuactive}`}
+                      className={`${sidebarcss.sidesubmenuactive}  ${router.pathname === slink.to ? 'font-bold text-primary': 'font-medium'}`}
                     >
                       <Link href={slink.to}>
                         <Typography variant={variants.basemedium}>
