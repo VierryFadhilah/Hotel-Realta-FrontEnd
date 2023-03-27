@@ -10,6 +10,11 @@ import { Trash } from "@/components/icons/trash";
 import { FormDepartment } from "@/components/hr/formDepartment";
 import { ConfirmationDeleteDepartment } from "@/components/hr/confirmationDeleteDepartment";
 
+interface IDepartement {
+  id: number;
+  name: string;
+}
+
 const Department = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
@@ -19,22 +24,21 @@ const Department = () => {
     id: 0,
     isShow: false,
   });
-  const [optionOpen, setOptionOpen] = useState(false);
   const [isDelete, setIsDelete] = useState({
     department: "",
     id: 0,
     isShow: false,
   });
-  const header = ["Departmen ID", "Department", "Action "];
+  const header = ["Departmen ID", "Department"];
   const { data, refresh } = useSelector(
     (state: any) => state.departmentReducers
   );
   const dispatch = useDispatch();
 
-  const handleSearchChange = (e: any) => {
+  const handleSearchChange = (e: any): void => {
     setSearch(e.target.value);
   };
-  const closeDeleteModal = () => {
+  const closeDeleteModal = (): void => {
     setIsDelete((prev: any) => {
       return { ...prev, isShow: false };
     });
@@ -79,49 +83,60 @@ const Department = () => {
         <table className="w-full shadow-lg">
           <thead className=" bg-slate-100">
             <tr className="bg-[#F9FAFB] border">
-              <th className=" py-2 px-4 text-left ">Departmen ID</th>
-              <th className=" py-2 px-4 text-left ">Department</th>
+              {(header || []).map((h, i) => (
+                <th key={i} className=" py-2 px-4 text-left ">
+                  {h}
+                </th>
+              ))}
               <th className=" py-2 px-6 text-right">Action</th>
             </tr>
           </thead>
           <tbody>
-            {(data.department || []).map((department: any, i: number) => (
-              <tr key={i} className="border">
-                <td className=" py-4 px-4 ">{department.id}</td>
-                <td className=" py-4 px-4 ">{department.name}</td>
-                <td className=" py-4 px-4  ">
-                  <div className="flex justify-end">
-                    <div
-                      className="mx-2 cursor-pointer"
-                      onClick={() => {
-                        setIsDelete({
-                          department: department.name,
-                          id: department.id,
-                          isShow: true,
-                        });
-                      }}
-                    >
-                      <Trash />
+            {(data.department || []).map(
+              (department: IDepartement, i: number) => (
+                <tr key={i} className="border">
+                  <td className=" py-4 px-4 ">{department.id}</td>
+                  <td className=" py-4 px-4 ">{department.name}</td>
+                  <td className=" py-4 px-4  ">
+                    <div className="flex justify-end">
+                      <div
+                        className="mx-2 cursor-pointer"
+                        onClick={() => {
+                          setIsDelete({
+                            department: department.name,
+                            id: department.id,
+                            isShow: true,
+                          });
+                        }}
+                      >
+                        <Trash />
+                      </div>
+                      <div
+                        className="mx-2 cursor-pointer"
+                        onClick={() => {
+                          setIsOpen({
+                            department: department.name,
+                            id: department.id,
+                            isShow: true,
+                          });
+                        }}
+                      >
+                        <Pencil />
+                      </div>
                     </div>
-                    <div
-                      className="mx-2 cursor-pointer"
-                      onClick={() => {
-                        setIsOpen({
-                          department: department.name,
-                          id: department.id,
-                          isShow: true,
-                        });
-                      }}
-                    >
-                      <Pencil />
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            ))}
+                  </td>
+                </tr>
+              )
+            )}
             <tr className="border-t">
               <td colSpan={3} className="px-4 py-4">
-                <Pagination page={page} data={data} setPage={setPage} />
+                <Pagination
+                  pagination={{
+                    totalPage: data.totalPage,
+                    page: data.page,
+                  }}
+                  setPage={setPage}
+                />
               </td>
             </tr>
           </tbody>
@@ -137,6 +152,7 @@ const Department = () => {
           header={"Add Department"}
           body={
             <FormDepartment
+              id={isOpen.id}
               department={isOpen.department}
               setIsOpen={setIsOpen}
             />

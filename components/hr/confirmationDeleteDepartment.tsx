@@ -1,6 +1,13 @@
 import React from "react";
 
-export const ConfirmationDeleteDepartment = (props: any) => {
+interface Iprops {
+  department: string;
+  handleDeleteDepartment: (id: number) => void;
+  id: number;
+  handleClose: () => void;
+}
+
+export const ConfirmationDeleteDepartment = (props: Iprops) => {
   return (
     <>
       <div className="bg-white  px-4 pt-5 pb-4 sm:p-6 sm:pb-4 border-b">

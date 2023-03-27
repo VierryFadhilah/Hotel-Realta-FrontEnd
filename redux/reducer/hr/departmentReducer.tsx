@@ -1,4 +1,5 @@
 import ActionTypes from "@/redux/action/hr/actionTypes";
+import { Iaction } from "@/redux/saga/hr/department";
 
 const initialState = {
   data: {},
@@ -6,7 +7,7 @@ const initialState = {
   message: "success",
 };
 
-export function departmentReducers(state = initialState, action: any) {
+export function departmentReducers(state = initialState, action: Iaction) {
   let { type, payload } = action;
 
   switch (type) {
@@ -18,6 +19,11 @@ export function departmentReducers(state = initialState, action: any) {
     case ActionTypes.CREATE_DEPARTMENT_RESPONSE:
       return { data: payload.data, refresh: true };
     case ActionTypes.DELETE_DEPARTMENT_RESPONSE:
+      return {
+        data: payload.data,
+        refresh: true,
+      };
+    case ActionTypes.UPDATE_DEPARTEMENT_RESPONSE:
       return {
         data: payload.data,
         refresh: true,

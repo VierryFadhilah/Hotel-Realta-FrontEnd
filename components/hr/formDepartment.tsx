@@ -1,6 +1,9 @@
 import React from "react";
 import { useForm, FieldErrors, Resolver } from "react-hook-form";
-import { createDepartment } from "@/redux/action/hr/department";
+import {
+  createDepartment,
+  updateDepartment,
+} from "@/redux/action/hr/department";
 import { useDispatch, useSelector } from "react-redux";
 
 type FormValues = {
@@ -24,11 +27,17 @@ export const FormDepartment = (props: any) => {
   const dispatch = useDispatch();
 
   const handleRegistration = (data: any) => {
-    if (!props.id) {
+    if (props.id) {
       // untuk membuat
-      dispatch(createDepartment(data));
+      const payload = {
+        id: props.id,
+        data,
+      };
+      dispatch(updateDepartment(payload));
       props.setIsOpen({ isShow: false });
     } else {
+      dispatch(createDepartment(data));
+      props.setIsOpen({ isShow: false });
     }
   };
   const handleError = (errors: any) => {};
@@ -45,7 +54,7 @@ export const FormDepartment = (props: any) => {
         <input
           type="text"
           className="border rounded-md p-1.5 block w-full mb-3 bg-[#F9FAFB] focus:border-[#DADADA] focus:outline-none"
-          value={props.department}
+          defaultValue={props.department}
           {...register("name")}
         />
         {errors?.name && <p>{errors.name.message}</p>}

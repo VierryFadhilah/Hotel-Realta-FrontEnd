@@ -1,4 +1,5 @@
 import ActionTypes from "./actionTypes";
+import { Departement } from "./departmentDto";
 
 export const getDepartment = (search: string, page: number, entry: number) => {
   const payload = {
@@ -12,7 +13,7 @@ export const getDepartment = (search: string, page: number, entry: number) => {
   };
 };
 
-export const getDepartmentResponse = (payload: any) => {
+export const getDepartmentResponse = (payload: Departement) => {
   return {
     type: ActionTypes.GET_DEPARTMENT_RESPONSE,
     payload,
@@ -43,6 +44,19 @@ export const deleteDepartment = (payload: any) => {
 export const deleteDepartmentResponse = (payload: any) => {
   return {
     type: ActionTypes.DELETE_DEPARTMENT_RESPONSE,
+    payload,
+  };
+};
+
+export const updateDepartment = (payload: any) => {
+  return {
+    type: ActionTypes.UPDATE_DEPARTEMENT,
+    payload,
+  };
+};
+export const updateDepartmentResponse = (payload: any) => {
+  return {
+    type: ActionTypes.UPDATE_DEPARTEMENT_RESPONSE,
     payload,
   };
 };

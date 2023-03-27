@@ -4,6 +4,7 @@ import {
   handleCreateDepartment,
   handleDeleteDepartment,
   handleGetDepartment,
+  handleUpdateDepartment,
 } from "./department";
 
 function* watchAll() {
@@ -11,6 +12,7 @@ function* watchAll() {
     takeEvery(ActionTypes.GET_DEPARTMENT, handleGetDepartment),
     takeEvery(ActionTypes.CREATE_DEPARTMENT, handleCreateDepartment),
     takeEvery(ActionTypes.DELETE_DEPARTMENT, handleDeleteDepartment),
+    takeEvery(ActionTypes.UPDATE_DEPARTEMENT, handleUpdateDepartment),
   ]);
 }
 

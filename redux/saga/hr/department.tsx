@@ -4,9 +4,23 @@ import {
   createDepartmentResponse,
   deleteDepartmentResponse,
   getDepartmentResponse,
+  updateDepartmentResponse,
 } from "../../action/hr/department";
+import { Departement } from "@/redux/action/hr/departmentDto";
 
-function* handleGetDepartment(action: any): any {
+interface IPayload {
+  search: string;
+  page: number;
+  entry: number;
+  data: Departement;
+}
+
+export interface Iaction {
+  type: string;
+  payload: IPayload;
+}
+
+function* handleGetDepartment(action: Iaction): Generator<any, void, any> {
   try {
     const { search, page, entry } = action.payload;
     const result = yield call(departmentApi.getDepartment, search, page, entry);
@@ -17,7 +31,7 @@ function* handleGetDepartment(action: any): any {
   }
 }
 
-function* handleCreateDepartment(action: any): any {
+function* handleCreateDepartment(action: Iaction): Generator<any, void, any> {
   try {
     const data = action.payload;
 
@@ -41,4 +55,21 @@ function* handleDeleteDepartment(action: any): any {
   }
 }
 
-export { handleGetDepartment, handleCreateDepartment, handleDeleteDepartment };
+function* handleUpdateDepartment(action: any): any {
+  try {
+    const { id, data } = action.payload;
+
+    const result = yield call(departmentApi.updateDepartment, id, data);
+    // console.log(result.data);
+    yield put(updateDepartmentResponse(result.data));
+  } catch (error) {
+    yield put(updateDepartmentResponse({ message: error }));
+  }
+}
+
+export {
+  handleGetDepartment,
+  handleCreateDepartment,
+  handleDeleteDepartment,
+  handleUpdateDepartment,
+};
