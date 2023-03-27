@@ -8,7 +8,6 @@ body{
   background-color: #fbfbfb;
 }
 
-/* bold */
 @font-face {
   font-family: "poppins-bold";
   src: url('../assets/fonts/Poppins-Bold.ttf');

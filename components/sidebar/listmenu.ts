@@ -1,12 +1,11 @@
-import Menualt from '@/components/icons/menualt';
-import Shopping from '@/components/icons/shopping-cart';
-import Hotels from '@/components/icons/office-building';
-import Money from '@/components/icons/cash';
-import User from '@/components/icons/user';
-import Folder from '@/components/icons/folder-open';
-import Dashboard from '@/components/icons/view-grid';
-import Chevron from '@/components/icons/Icon';
-import Hr from '../icons/identification';
+import Shopping from '@/components/icons/Cart';
+import Hotels from '@/components/icons/Hotel';
+import Money from '@/components/icons/Money';
+import User from '@/components/icons/User';
+import Folder from '@/components/icons/Folder';
+import Dashboard from '@/components/icons/Dashboard';
+import Chevron from '@/components/icons/Chevron';
+import Hr from '@/components/icons/Hr';
 
 const listMenu = [
     
