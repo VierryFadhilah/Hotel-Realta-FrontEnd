@@ -49,7 +49,7 @@ const Sidebar = forwardRef(({}, ref: LegacyRef<HTMLDivElement>) => {
                 >
                   <MenuIcon icon={menu.icon} />
                   <Typography
-                    variant={variants.subtitle3}
+                    variant={variants.basemedium}
                     customClass={"flex-1"}
                   >
                     {menu.name}
@@ -76,7 +76,7 @@ const Sidebar = forwardRef(({}, ref: LegacyRef<HTMLDivElement>) => {
                       className={`${sidebarcss.sidesubmenuactive}`}
                     >
                       <Link href={slink.to}>
-                        <Typography variant={variants.subtitle3}>
+                        <Typography variant={variants.basemedium}>
                           {slink.title}
                         </Typography>
                       </Link>
