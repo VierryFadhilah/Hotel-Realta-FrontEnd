@@ -52,7 +52,7 @@ const Department = () => {
   }, [search, page, entry, refresh, isOpen, dispatch, isDelete]);
 
   return (
-    <div className="flex w-screen font-display">
+    <div className="flex w-full font-display">
       <div className="flex flex-col items-start px-5 mt-10 w-full">
         <div className="flex flex-row w-full justify-between">
           <div>

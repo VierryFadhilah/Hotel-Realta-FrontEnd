@@ -13,6 +13,7 @@ interface IPayload {
   page: number;
   entry: number;
   data: Departement;
+  name: string;
 }
 
 export interface Iaction {
