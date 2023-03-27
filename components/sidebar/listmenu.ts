@@ -120,17 +120,27 @@ const listMenu = [
             {
                 to: "",
                 path: "",
-                title: "Vendor",
+                title: "Location",
             },
             {
                 to: "",
                 path: "",
-                title: "Stock",
+                title: "Policy",
             },
             {
                 to: "",
                 path: "",
-                title: "Purchasing Order",
+                title: "Category",
+            },
+            {
+                to: "",
+                path: "",
+                title: "Price",
+            },
+            {
+                to: "",
+                path: "",
+                title: "Service",
             }
         ]
     },
@@ -144,17 +154,17 @@ const listMenu = [
             {
                 to: "",
                 path: "",
-                title: "Vendor",
+                title: "Profil",
             },
             {
                 to: "",
                 path: "",
-                title: "Stock",
+                title: "Booking",
             },
             {
                 to: "",
                 path: "",
-                title: "Purchasing Order",
+                title: "Accaount",
             }
         ]
     },
