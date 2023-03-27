@@ -1,7 +1,10 @@
-const sidebarcss ={
-    sidebar: 'flex  w-64 h-full bg-white',
-    sidebarcontainer: 'bg-white duration-700 z-10 w-64  h-full px-4 height: calc(100vh - 82px)',
-    sidelinkactive: "hover:bg-grayHover hover:text-blackText  text-blackText text-sm items-center gap-x-4",
-    sidesubmenuactive: "flex cursor-pointer text-center text-sm text-blackText py-2 hover:font-bold hover:text-primary"
-}
+const sidebarcss = {
+  sidebar: "flex  w-64 h-screen bg-white", //ubah jadi h-screen
+  sidebarcontainer:
+    "bg-white  duration-700 z-10 w-64  h-full px-4 height: calc(100vh - 82px)",
+  sidelinkactive:
+    "hover:bg-grayHover hover:text-blackText  text-blackText text-sm items-center gap-x-4",
+  sidesubmenuactive:
+    "flex cursor-pointer text-center text-sm text-blackText py-2 hover:font-bold hover:text-primary",
+};
 export default sidebarcss;

@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React, { LegacyRef, forwardRef, useState } from "react";
 import cx from "classnames";
 import sidebarcss from "./sidebarcss";
@@ -73,7 +74,11 @@ const Sidebar = forwardRef(({}, ref: LegacyRef<HTMLDivElement>) => {
                   {menu.submenu.map((slink) => (
                     <div
                       key={slink.title}
-                      className={`${sidebarcss.sidesubmenuactive}  ${router.pathname === slink.to ? 'font-bold text-primary': 'font-medium'}`}
+                      className={`${sidebarcss.sidesubmenuactive}  ${
+                        router.pathname === slink.to
+                          ? "font-bold text-primary"
+                          : "font-medium"
+                      }`}
                     >
                       <Link href={slink.to}>
                         <Typography variant={variants.basemedium}>
