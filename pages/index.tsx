@@ -7,10 +7,10 @@ import SidebarBooking from '@/components/sidebarBooking'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Dashboard() {
   return (
     <main className="w-[85%] mx-auto">
-      {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <SearchBooking />
       <SidebarBooking />
     </main>
