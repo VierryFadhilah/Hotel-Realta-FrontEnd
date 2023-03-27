@@ -16,10 +16,10 @@ const Navbar = ({showNav,setShownav}:any) => {
             </div>
             <div className={cx(`${navbarCss.navbarbody}`)}>
                 <div className={cx('text-right')}>
-                    <Typography variant={variants.h5} color={'text-blackText'} >
+                    <Typography variant={variants.smregular} color={'text-blackText'} >
                     Muhammad Ikrar
                     </Typography>
-                    <Typography variant={variants.subtitle4} color={'text-grayText'}>
+                    <Typography variant={variants.xsregular} color={'text-grayText'}>
                         administrator
                     </Typography>
                     <p></p>
