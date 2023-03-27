@@ -76,7 +76,7 @@ const Sidebar = forwardRef(({}, ref: LegacyRef<HTMLDivElement>) => {
                       key={slink.title}
                       className={`${sidebarcss.sidesubmenuactive}  ${
                         router.pathname === slink.to
-                          ? "font-bold text-textPrimary"
+                          ? "font-bold text-primary"
                           : "font-medium"
                       }`}
                     >
