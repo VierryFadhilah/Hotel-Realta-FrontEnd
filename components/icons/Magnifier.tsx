@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-export const Magnifier = () => {
+const Magnifier = () => {
   return (
     <svg
       width="18"
@@ -17,5 +17,7 @@ export const Magnifier = () => {
         strokeLinejoin="round"
       />
     </svg>
-  );
-};
+  )
+}
+
+export default Magnifier

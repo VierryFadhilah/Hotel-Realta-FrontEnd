@@ -1,6 +1,5 @@
-import React from "react";
-
-export const ChevronLeft = () => {
+import React from "react"
+const ChevronLeft = () => {
   return (
     <svg
       width="9"
@@ -14,5 +13,7 @@ export const ChevronLeft = () => {
         fill="#C4CDD5"
       />
     </svg>
-  );
-};
+  )
+}
+
+export default ChevronLeft

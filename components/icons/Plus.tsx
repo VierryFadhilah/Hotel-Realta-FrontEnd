@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-export const Plus = () => {
+const Plus = () => {
   return (
     <svg
       width="14"
@@ -17,5 +17,7 @@ export const Plus = () => {
         strokeLinejoin="round"
       />
     </svg>
-  );
-};
+  )
+}
+
+export default Plus

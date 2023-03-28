@@ -1,10 +1,16 @@
-import React from "react";
+import React, { FC } from "react"
 
-export const Trash = () => {
+interface TrashProps {
+  width?: string
+  height?: string
+  stroke?: string
+}
+
+const Trash: FC<TrashProps> = (props: any) => {
   return (
     <svg
-      width="18"
-      height="20"
+      width={props.width}
+      height={props.height}
       viewBox="0 0 18 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -17,5 +23,7 @@ export const Trash = () => {
         strokeLinejoin="round"
       />
     </svg>
-  );
-};
+  )
+}
+
+export default Trash
