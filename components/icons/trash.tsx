@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import React, { FC } from "react"
+=======
 import { FC } from "react"
+>>>>>>> 69945b4c316a3fb3c832d71af92917397fad6bf6
 
 interface TrashProps {
   width?: string
@@ -26,10 +30,13 @@ const Trash: FC<TrashProps> = (props: any) => {
   )
 }
 
+<<<<<<< HEAD
+=======
 Trash.defaultProps = {
   width: "18",
   height: "20",
   stroke: "#667085",
 }
 
+>>>>>>> 69945b4c316a3fb3c832d71af92917397fad6bf6
 export default Trash
