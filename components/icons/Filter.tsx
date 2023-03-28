@@ -1,4 +1,5 @@
-import { FC } from 'react'
+import { FC } from "react"
+
 interface FilterProps {
   width?: string
   height?: string
@@ -23,9 +24,9 @@ const Filter: FC<FilterProps> = (props: any) => {
 }
 
 Filter.defaultProps = {
-  width: '20',
-  height: '19',
-  fill: '#C6C9D6',
+  width: "20",
+  height: "19",
+  fill: "#C6C9D6",
 }
 
 export default Filter

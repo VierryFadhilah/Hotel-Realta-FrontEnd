@@ -1,10 +1,9 @@
-import AddButton from "@/components/addButton";
-import { Plus } from "@/components/icons/Plus";
-import { SearchInput } from "@/components/searchInput";
-import React from "react";
+import AddButton from "@/components/addButton"
+import { SearchInput } from "@/components/searchInput"
+import React from "react"
 
 const Employee = () => {
-  const handleSearchChange = () => {};
+  const handleSearchChange = () => {}
   return (
     <div className="flex w-full font-display">
       <div className="flex flex-col items-start px-5 mt-10 w-full">
@@ -18,7 +17,7 @@ const Employee = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Employee;
+export default Employee

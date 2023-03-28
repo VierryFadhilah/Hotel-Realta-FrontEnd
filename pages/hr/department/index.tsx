@@ -1,66 +1,64 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteDepartment, getDepartment } from "@/redux/action/hr/department";
-import { SearchInput } from "@/components/searchInput";
-import { Pagination } from "@/components/pagination";
-import { Plus } from "@/components/icons/Plus";
-import { Modal } from "@/components/modal";
-import { Pencil } from "@/components/icons/pencil";
-import { Trash } from "@/components/icons/trash";
-import { FormDepartment } from "@/components/hr/formDepartment";
-import { ConfirmationDeleteDepartment } from "@/components/hr/confirmationDeleteDepartment";
-import AddButton from "@/components/addButton";
-import Typography from "@/components/Typography";
-import variants from "@/components/Typography/textcss";
+import React, { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { deleteDepartment, getDepartment } from "@/redux/action/hr/department"
+import { SearchInput } from "@/components/searchInput"
+import { Pagination } from "@/components/pagination"
+import { Modal } from "@/components/modal"
+import { Pencil, Trash } from "@/components/icons"
+import { FormDepartment } from "@/components/hr/formDepartment"
+import { ConfirmationDeleteDepartment } from "@/components/hr/confirmationDeleteDepartment"
+import AddButton from "@/components/addButton"
+import Typography from "@/components/Typography"
+import variants from "@/components/Typography/textcss"
 
 interface IDepartement {
-  id: number;
-  name: string;
+  id: number
+  name: string
 }
 
 const Department = () => {
-  const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
-  const [entry, setEntry] = useState(10);
+  const [search, setSearch] = useState("")
+  const [page, setPage] = useState(1)
+  const [entry, setEntry] = useState(10)
   const [isOpen, setIsOpen] = useState({
     department: "",
     id: 0,
     isShow: false,
-  });
+  })
   const [isDelete, setIsDelete] = useState({
     department: "",
     id: 0,
     isShow: false,
-  });
-  const header = ["Departmen ID", "Department"];
+  })
+  const header = ["Departmen ID", "Department"]
   const { data, refresh } = useSelector(
     (state: any) => state.departmentReducers
-  );
-  const dispatch = useDispatch();
+  )
+  const dispatch = useDispatch()
   const handleClose = () => {
-    setIsOpen((prev) => {
-      return { ...prev, isShow: false };
-    });
-  };
+    setIsOpen(prev => {
+      return { ...prev, isShow: false }
+    })
+  }
 
   const handleSearchChange = (e: any): void => {
-    setSearch(e.target.value);
-  };
+    setSearch(e.target.value)
+  }
   const closeDeleteModal = (): void => {
     setIsDelete((prev: any) => {
-      return { ...prev, isShow: false };
-    });
-  };
+      return { ...prev, isShow: false }
+    })
+  }
   const handleDeleteDepartment = (id: number) => {
-    closeDeleteModal();
-    dispatch(deleteDepartment(id));
-  };
+    closeDeleteModal()
+    dispatch(deleteDepartment(id))
+  }
   const handleAddOpen = () => {
-    setIsOpen({ department: "", id: 0, isShow: true });
-  };
+    setIsOpen({ department: "", id: 0, isShow: true })
+  }
   useEffect(() => {
-    dispatch(getDepartment(search, page, entry));
-  }, [search, page, entry, refresh, isOpen, dispatch, isDelete]);
+    dispatch(getDepartment(search, page, entry))
+  }, [search, page, entry, refresh, isOpen, dispatch, isDelete])
 
   return (
     <div className="flex w-full font-poppins-regular">
@@ -130,7 +128,7 @@ const Department = () => {
                             department: department.name,
                             id: department.id,
                             isShow: true,
-                          });
+                          })
                         }}
                       >
                         <Trash />
@@ -142,7 +140,7 @@ const Department = () => {
                             department: department.name,
                             id: department.id,
                             isShow: true,
-                          });
+                          })
                         }}
                       >
                         <Pencil />
@@ -178,7 +176,7 @@ const Department = () => {
       {isDelete.isShow ? (
         <Modal
           onClose={() => {
-            closeDeleteModal();
+            closeDeleteModal()
           }}
           header={"Delete Department"}
         >
@@ -187,13 +185,13 @@ const Department = () => {
             handleDeleteDepartment={handleDeleteDepartment}
             id={isDelete.id}
             handleClose={() => {
-              closeDeleteModal();
+              closeDeleteModal()
             }}
           />
         </Modal>
       ) : null}
     </div>
-  );
-};
+  )
+}
 
-export default Department;
+export default Department

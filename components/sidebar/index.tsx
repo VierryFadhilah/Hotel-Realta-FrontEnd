@@ -1,6 +1,5 @@
 /* eslint-disable react/display-name */
 import React, { LegacyRef, forwardRef, useState } from "react"
-import cx from "classnames"
 import sidebarcss from "./sidebarcss"
 import Link from "next/link"
 import { useRouter } from "next/router"

@@ -1,19 +1,25 @@
-import { FC } from "react";
+import { FC } from "react"
 
-interface Button {
-  title: string;
+interface OutlineButtonProps {
+  title: string
+  px?: string
+  py?: string
+  textSize?: string
 }
 
-const OutlineButton: FC<Button> = (props: any) => {
+export const OutlineButton: FC<OutlineButtonProps> = (props: any) => {
   return (
-    <button className={`px-2 py-2 font-medium text-xs text-[#7743DB] border-[#7743DB] border-solid border-2 outline-none focus:outline-none hover:text-white rounded-md hover:bg-[#7743DB]`}>
+    <button
+      className={`px-${props.px} py-${props.py} font-semibold text-${props.textSize} text-text border-bgPrimary border-solid border-2 outline-none focus:outline-none hover:text-white rounded-md hover:bg-bgPrimary`}
+    >
       {props.title}
     </button>
   )
 }
 
 OutlineButton.defaultProps = {
-  title: 'Search'
+  title: "Search",
+  px: "1",
+  py: "1",
+  textSize: "[8px]",
 }
-
-export default OutlineButton;

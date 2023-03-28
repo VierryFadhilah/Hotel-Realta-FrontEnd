@@ -1,10 +1,10 @@
-import Search from '../icons/Search'
-import OutlineButton from '../buttons/OutlineButton'
+import { Search } from "@/components/icons"
+import { OutlineButton } from "@/components/buttons/OutlineButton"
 
 export default function SearchBooking(props: any) {
   return (
-    <div className="flex justify-between items-center mt-8 shadow rounded-md px-4 py-4 text-[#1C2434]">
-      <Search stroke={'#7743DB'} />
+    <div className="flex justify-between items-center bg-white mt-8 shadow rounded-md px-4 py-4 text-[#1C2434]">
+      <Search stroke={"#7743DB"} />
       <form>
         <input
           type="search"
