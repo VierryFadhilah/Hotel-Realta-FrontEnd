@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import React from "react"
-
-const Magnifier = () => {
-=======
 import { FC } from "react"
 
 interface MagnifierProps {
@@ -12,7 +7,6 @@ interface MagnifierProps {
 }
 
 const Magnifier: FC<MagnifierProps> = (props: any) => {
->>>>>>> 69945b4c316a3fb3c832d71af92917397fad6bf6
   return (
     <svg
       width={props.width}
@@ -32,13 +26,10 @@ const Magnifier: FC<MagnifierProps> = (props: any) => {
   )
 }
 
-<<<<<<< HEAD
-=======
 Magnifier.defaultProps = {
   width: "18",
   height: "18",
   stroke: "#667085",
 }
 
->>>>>>> 69945b4c316a3fb3c832d71af92917397fad6bf6
 export default Magnifier

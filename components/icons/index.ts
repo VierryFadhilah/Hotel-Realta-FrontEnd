@@ -1,7 +1,9 @@
+import Car from "./Car"
 import Cart from "./Cart"
 import Chevron from "./Chevron"
 import ChevronLeft from "./ChevronLeft"
 import ChevronRight from "./ChevronRight"
+import Coffee from "./Coffee"
 import Dashboard from "./Dashboard"
 import Filter from "./Filter"
 import Folder from "./Folder"
@@ -17,10 +19,12 @@ import Trash from "./Trash"
 import User from "./User"
 
 export {
+  Car,
   Cart,
   Chevron,
   ChevronLeft,
   ChevronRight,
+  Coffee,
   Dashboard,
   Filter,
   Folder,

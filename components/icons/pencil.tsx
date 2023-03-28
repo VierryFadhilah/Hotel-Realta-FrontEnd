@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { FC } from "react"
-=======
 import { FC } from "react"
->>>>>>> 69945b4c316a3fb3c832d71af92917397fad6bf6
 
 interface PencilProps {
   width?: string
@@ -30,13 +26,10 @@ const Pencil: FC<PencilProps> = (props: any) => {
   )
 }
 
-<<<<<<< HEAD
-=======
 Pencil.defaultProps = {
   width: "20",
   height: "20",
   stroke: "#667085",
 }
 
->>>>>>> 69945b4c316a3fb3c832d71af92917397fad6bf6
 export default Pencil

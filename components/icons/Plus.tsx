@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import React from "react"
-
-const Plus = () => {
-=======
 import { FC } from "react"
 
 interface PlusProps {
@@ -12,7 +7,6 @@ interface PlusProps {
 }
 
 const Plus: FC<PlusProps> = (props: any) => {
->>>>>>> 69945b4c316a3fb3c832d71af92917397fad6bf6
   return (
     <svg
       width={props.width}
@@ -32,13 +26,10 @@ const Plus: FC<PlusProps> = (props: any) => {
   )
 }
 
-<<<<<<< HEAD
-=======
 Plus.defaultProps = {
   width: "24",
   height: "24",
   stroke: "#FFFFFF",
 }
 
->>>>>>> 69945b4c316a3fb3c832d71af92917397fad6bf6
 export default Plus

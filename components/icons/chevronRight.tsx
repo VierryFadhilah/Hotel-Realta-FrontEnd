@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import React from "react"
-import ChevronLeft from "./chevronLeft"
-
-const ChevronRight = () => {
-=======
 import { FC } from "react"
 
 interface ChevronRightProps {
@@ -13,7 +7,6 @@ interface ChevronRightProps {
 }
 
 const ChevronRight: FC<ChevronRightProps> = (props: any) => {
->>>>>>> 69945b4c316a3fb3c832d71af92917397fad6bf6
   return (
     <svg
       width={props.width}
@@ -30,9 +23,6 @@ const ChevronRight: FC<ChevronRightProps> = (props: any) => {
   )
 }
 
-<<<<<<< HEAD
-export default ChevronLeft
-=======
 ChevronRight.defaultProps = {
   width: "9",
   height: "12",
@@ -40,4 +30,3 @@ ChevronRight.defaultProps = {
 }
 
 export default ChevronRight
->>>>>>> 69945b4c316a3fb3c832d71af92917397fad6bf6
