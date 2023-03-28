@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC } from "react"
 
 interface SeacrhProps {
   width?: string
@@ -27,9 +27,9 @@ const Search: FC<SeacrhProps> = (props: any) => {
 }
 
 Search.defaultProps = {
-  width: '31',
-  height: '31',
-  stroke: '#667085',
+  width: "31",
+  height: "31",
+  stroke: "#667085",
 }
 
 export default Search

@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC } from "react"
 
 interface ChevronProps {
   width?: string
@@ -27,9 +27,9 @@ const Chevron: FC<ChevronProps> = (props: any) => {
 }
 
 Chevron.defaultProps = {
-  width: '24',
-  height: '24',
-  stroke: '#82868C',
+  width: "24",
+  height: "24",
+  stroke: "#82868C",
 }
 
 export default Chevron

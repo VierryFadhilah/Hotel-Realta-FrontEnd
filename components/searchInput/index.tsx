@@ -1,10 +1,10 @@
-import React from "react";
-import { HiMagnifyingGlass } from "react-icons/hi2";
-import { Magnifier } from "../icons/Magnifier";
+import React from "react"
+import { HiMagnifyingGlass } from "react-icons/hi2"
+import { Magnifier } from "../icons"
 
 type Props = {
-  onChange?: any;
-};
+  onChange?: any
+}
 
 export const SearchInput = ({ onChange }: Props) => {
   return (
@@ -19,5 +19,5 @@ export const SearchInput = ({ onChange }: Props) => {
         placeholder="Search"
       />
     </div>
-  );
-};
+  )
+}

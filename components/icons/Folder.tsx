@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC } from "react"
 
 interface FolderProps {
   width?: string
@@ -27,9 +27,9 @@ const Folder: FC<FolderProps> = (props: any) => {
 }
 
 Folder.defaultProps = {
-  width: '24',
-  height: '24',
-  stroke: '#82868C',
+  width: "24",
+  height: "24",
+  stroke: "#82868C",
 }
 
 export default Folder
