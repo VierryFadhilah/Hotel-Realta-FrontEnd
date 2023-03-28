@@ -6,7 +6,7 @@ interface HrProps {
   stroke?: string
 }
 
-export const Hr: FC<HrProps> = (props: any) => {
+const Hr: FC<HrProps> = (props: any) => {
   return (
     <svg
       width={props.width}
@@ -31,3 +31,5 @@ Hr.defaultProps = {
   height: "24",
   stroke: "#82868C",
 }
+
+export default Hr
