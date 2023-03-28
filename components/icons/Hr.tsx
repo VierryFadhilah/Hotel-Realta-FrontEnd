@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC } from "react"
 
 interface HrProps {
   width?: string
@@ -6,7 +6,7 @@ interface HrProps {
   stroke?: string
 }
 
-const Hr: FC<HrProps> = (props: any) => {
+export const Hr: FC<HrProps> = (props: any) => {
   return (
     <svg
       width={props.width}
@@ -27,9 +27,7 @@ const Hr: FC<HrProps> = (props: any) => {
 }
 
 Hr.defaultProps = {
-  width: '24',
-  height: '24',
-  stroke: '#82868C',
+  width: "24",
+  height: "24",
+  stroke: "#82868C",
 }
-
-export default Hr

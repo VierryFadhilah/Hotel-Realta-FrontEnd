@@ -1,5 +1,4 @@
-import React from 'react'
-import { FC } from 'react'
+import { FC } from "react"
 
 interface HotelProps {
   width?: string
@@ -28,9 +27,9 @@ const Hotel: FC<HotelProps> = (props: any) => {
 }
 
 Hotel.defaultProps = {
-  width: '24',
-  height: '24',
-  stroke: '#82868C',
+  width: "24",
+  height: "24",
+  stroke: "#82868C",
 }
 
 export default Hotel
