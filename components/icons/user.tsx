@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC } from "react"
 
 interface UserProps {
   width?: string
@@ -34,9 +34,9 @@ const User: FC<UserProps> = (props: any) => {
 }
 
 User.defaultProps = {
-  width: '24',
-  height: '24',
-  stroke: '#82868C',
+  width: "24",
+  height: "24",
+  stroke: "#82868C",
 }
 
 export default User

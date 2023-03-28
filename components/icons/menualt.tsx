@@ -1,6 +1,6 @@
-import React from 'react'
-import { string } from 'prop-types'
-import { FC } from 'react'
+import React from "react"
+import { string } from "prop-types"
+import { FC } from "react"
 
 interface MenuAltProps {
   width?: string
@@ -28,9 +28,9 @@ const MenuAlt: FC<MenuAltProps> = (props: any) => {
 }
 
 MenuAlt.defaultProps = {
-  width: '21',
-  height: '21',
-  fill: '#82868C',
+  width: "21",
+  height: "21",
+  fill: "#82868C",
 }
 
 export default MenuAlt
